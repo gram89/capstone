@@ -1,0 +1,38 @@
+
+# Sources
+
+https://www.crea.ca/housing-market-stats/mls-home-price-index/hpi-tool/
+https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/hlt-fst/index-eng.cfm
+
+# Drafts
+
+Geographical data:
+- Address
+- Longitude
+- Latitude
+- Street Address
+- City
+- Province
+- Postalcode
+
+
+Property data:
+- Area
+- Rooms
+- Bedrooms
+- Type
+- Age
+- Garage
+- Near to public transportation
+- Near public schools
+- Basement (Y/N)
+- Fireplace (Y/N)
+- Garage
+- Price (Y)
+- Date
+
+
+
+
+
+
