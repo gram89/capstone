@@ -1,1 +1,6 @@
 # capstone
+The objective of this project is to predict the prices of houses five years from now and if the houses are affordable based on the salary of an individual. This prediction of prices and a property’s affordability is made possible by using machine learning. The variables available in the data related to the real estate are, for example, the price of the property, number of rooms, bathrooms in a property, lot sizes, etc., will be used to predict the prices in the housing market in Canada in the next five years. This will be done using supervised and unsupervised machine learning enabling us to estimate the prices. 
+
+The nature of the analysis and the desired outcome will allow us to mostly focus on logistic regression using the number of rooms in the property, the square food, address, number of bedrooms and bathroom and the current price. 
+
+The unsupervised machine learning will be utilized for predicting and displaying which individuals falling under a range of salary will be able to afford a property in a specific range. For example, if an individual’s salary falls under the range of $80,000.00 to $100,000.00, will this individual be able to afford a property amounting to $750,000.00. The information like the individual’s salary, individual’s employment sector and the province will also be factored in. 
