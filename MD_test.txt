@@ -1,13 +1,4 @@
-# Database Sketch
-
-The database for this project will consist of four tables. Their relationships, variables, variables types and primary keys can be found in the diagram below:
-
-![](/Images/QuickDBD-Capstone_Sketch.png)
-
-
-The data found on each table is explained in the dictionary below:
-
-## Table 1: Salaries Information
+# Salaries Information
  
 This data refers to a salary research per region.
 
@@ -18,7 +9,7 @@ This data refers to a salary research per region.
 | province | varchar | Which province this information was collected from.|
 
 
-## Table 2: Geography Data
+# Geography Data
 
 This data refers to geographical data of any datapoint found in the research.
 
@@ -33,7 +24,7 @@ This data refers to geographical data of any datapoint found in the research.
 | postalcode | varchar | The postalcode extracted from the full address.| 
 
 
-## Table 3: Properties
+# Properties
 
 This data refers to the features we intend to use to predict the prices in the housing market in Canada in the next five years.
 
@@ -57,7 +48,7 @@ This data refers to the features we intend to use to predict the prices in the h
 | address | varchar | The full address of the property. | 
 
 
-## Table 4: Listings
+# Listings
 
 The data below will be extracted from Realtor.ca so we can apply the predictions in the current listings to forecast how much these same listings will have their prices increased in the next five years.
 
