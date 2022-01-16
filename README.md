@@ -1,10 +1,70 @@
-# capstone
+# Database Sketch
+
+The database for this project will consist of four tables. Their relationships, variables, variables types and primary keys can be found in the diagram below:
+
+![](QuickDBD-Capstone_Sketch.png)
 
 
-Salaries
+The data found on each table is explained in the dictionary below:
+
+## Table 1: Salaries Information
  
+This data refers to a salary research per region.
+
 | Variable | Data Type | Description |
-|----------|-----------|-------------| 
-| salary | double | This is the salary information | 
-| sector_industry | varchar | 
-| province | varchar |
+|----------|-----------|-------------|
+| salary | double | Salary average in a region. |
+| sector_industry | varchar | What sector or industry the salary belongs to. |
+| province | varchar | Which province this information was collected from.|
+
+
+## Table 2: Geography Data
+
+This data refers to geographical data of any datapoint found in the research.
+
+| Variable | Data Type | Description |
+|----------|-----------|-------------|
+| address | varchar | Full address of any datapoint found.|
+| longitude | double | Longitude of the address.| 
+| latitude | double | Longitude of the address.|
+| street_address | varchar | The street address component of the full address.| 
+| city | varchar | The city extracted from the full address.| 
+| province | varchar | The province extracted from the full address.| 
+| postalcode | varchar | The postalcode extracted from the full address.| 
+
+
+## Table 3: Properties
+
+This data refers to the features we intend to use to predict the prices in the housing market in Canada in the next five years.
+
+| Variable | Data Type | Description | 
+|----------|-----------|-------------|
+| price | double | The price of the property. | 
+| timestamp | date | the time stamp when the data was captured.| 
+| square_footage | varchar | The square footage for main living & basement areas.|
+| rooms | int | Number of rooms above the basement level. |  
+| bathroom | double | Number of bathrooms & half-bathrooms. | 
+| property_type | varchar | The type of the property, to be defined according to the database found.| 
+| lot_size | double | The size of the lot.|
+| property_age | int | How many years passed since the property was built.|
+| parking | varchar | Whether the house has parking.| 
+| heating_type | varchar | How the home is heated.| 
+| FFSR | varchar | Foundation, flooring, siding & roofing types. | 
+| property_view | varchar | Whether the property has waterfront or panoramic view. | Whether the property has been sold previously (newly constructed and previously unsold, or repeat sale). |
+| selling_status | varchar | Whether the property has been sold previously (newly constructed and previously unsold, or repeat sale). | 
+| proximity | varchar | Proximity to shopping, schools, hospitals, police stations, churches, sports centres, golf courses, parks, and transportation (including the train station, railways, and airports).
+| fireplace_basement | varchar | Whether it has a fireplace and/or finished basement. | 
+| address | varchar | The full address of the property. | 
+
+
+## Table 4: Listings
+
+The data below will be extracted from Realtor.ca so we can apply the predictions in the current listings to forecast how much these same listings will have their prices increased in the next five years.
+
+Variable | Data Type | Description
+|----------|-----------|-------------|
+| timestamp | date | The date when the listing was visualized. | 
+| price | double | The listing price of the property.| 
+| address | varchar | The full address of the property.| 
+| bedrooms | double | How many bedrooms the property has.| 
+| bathrooms | double | How many bathrooms the property has.| 
