@@ -2,7 +2,7 @@
 
 The database for this project will consist of four tables. Their relationships, variables, variables types and primary keys can be found in the diagram below:
 
-![](QuickDBD-Capstone_Sketch.png)
+![](/Images/QuickDBD-Capstone_Sketch.png)
 
 
 The data found on each table is explained in the dictionary below:
