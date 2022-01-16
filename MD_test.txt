@@ -1,0 +1,48 @@
+Salaries
+ 
+| Variable | Data Type | Description |
+|----------|-----------|-------------| 
+| salary | double | This is the salary information | 
+| sector_industry | varchar | 
+| province | varchar | 
+
+| Geography |  | 
+|  |  | 
+| Variable | Data Type | Description
+| address | varchar | 
+| longitude | double | 
+| latitude | double | 
+| street_address | varchar | 
+| city | varchar | 
+| province | varchar | 
+| postalcode | varchar | 
+|  |  | 
+|  |  | 
+| Properties |  | 
+|  |  | 
+| Variable | Data Type | Description
+| price | double | 
+| timestamp | date | 
+| square_footage | varchar | 
+| rooms | int | 
+| bathroom | double | 
+| property_type | varchar | 
+| lot_size | double | 
+| property_age | int | 
+| parking | varchar | 
+| heating_type | varchar | 
+| FFSR | varchar | 
+| property_view | varchar | 
+| selling_status | varchar | 
+| proximity | varchar | 
+| fireplace_basement | varchar | 
+| address | varchar | 
+|  |  | 
+| Listings |  | 
+|  |  | 
+| Variable | Data Type | Description
+| timestamp | date | 
+| price | double | 
+| address | varchar | 
+| bedrooms | double | 
+| bathrooms | double | | 

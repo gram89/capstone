@@ -24,7 +24,7 @@ Geographical data:
 • Postalcode
 
 
-Property data:
+Properties data:
 • Price (Y)
 • Date
 • Square footage for main living & basement areas
@@ -40,8 +40,13 @@ Property data:
 • Whether the property has been sold previously (newly constructed and previously unsold, or repeat sale)
 • Proximity to shopping, schools, hospitals, police stations, churches, sports centres, golf courses, parks, and transportation (including the train station, railways, and airports)
 • Whether it has a fireplace and/or finished basement
-• City
+• Address
 
+Listings
+• Price
+• Address
+• Bedrooms
+• Bathrooms
 
 CREA features
 
