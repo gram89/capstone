@@ -1,5 +1,11 @@
 # capstone
 
+## Project Overview
+Here is the link to the Google slides presentation which includes our overall project plan and updates on where we are as we work through the project.
+https://docs.google.com/presentation/d/16HX-4gxxWvJhYth8kHkRRqW-fMynWEsueiPTrCZG0BY/edit#slide=id.gcb9a0b074_1_0
+
+
+
 ## Backend Data Collection & Cleaning
 
 ### Housing Prices:
@@ -17,3 +23,6 @@ Depending on the job category, some had annual salary and some had hourly rate. 
 
 Source is a Stats Canada website (2021 data):
 https://open.canada.ca/data/en/dataset/adad580f-76b0-4502-bd05-20c125de9116
+
+
+
