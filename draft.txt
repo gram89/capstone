@@ -6,33 +6,54 @@ https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/hlt-fst/index-eng.cfm
 
 # Drafts
 
+
+
+Salary Data
+• Average Salary
+• Sector/Industry
+• Province
+
+
 Geographical data:
-- Address
-- Longitude
-- Latitude
-- Street Address
-- City
-- Province
-- Postalcode
+• Address
+• Longitude
+• Latitude
+• Street Address
+• City
+• Province
+• Postalcode
 
 
 Property data:
-- Area
-- Rooms
-- Bedrooms
-- Type
-- Age
-- Garage
-- Near to public transportation
-- Near public schools
-- Basement (Y/N)
-- Fireplace (Y/N)
-- Garage
-- Price (Y)
-- Date
+• Price (Y)
+• Date
+• Square footage for main living & basement areas
+• Number of rooms above the basement level
+• Number of bathrooms & half-bathrooms
+• Property Type
+• Lot size
+• The age of the property
+• Parking
+• How the home is heated
+• Foundation, flooring, siding & roofing types
+• Whether the property has waterfront or panoramic view
+• Whether the property has been sold previously (newly constructed and previously unsold, or repeat sale)
+• Proximity to shopping, schools, hospitals, police stations, churches, sports centres, golf courses, parks, and transportation (including the train station, railways, and airports)
+• Whether it has a fireplace and/or finished basement
+• City
 
 
+CREA features
 
-
-
-
+• Whether it has a fireplace and/or finished basement
+• Lot size
+• The age of the property
+• Parking
+• How the home is heated
+• Foundation, flooring, siding & roofing types
+• Whether the property has waterfront or panoramic view
+• Whether the property has been sold previously (newly constructed and previously unsold, or repeat sale)
+• Proximity to shopping, schools, hospitals, police stations, churches, sports centres, golf courses, parks, and transportation (including the train station, railways, and airports)
+• Number of rooms above the basement level
+• Number of bathrooms & half-bathrooms
+• Square footage for main living & basement areas 
