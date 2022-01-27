@@ -37,6 +37,10 @@ The database for this project will consist of four tables. Their relationships, 
 
 ![](/Images/QuickDBD-Capstone_Sketch.png)
 
+We have pushed a few different data sets we downloaded or webcraped into PostgresSQL after cleaning/processing data in Python. Here is an image of all the tables we have pushed to Postgres: <br />
+![tables in postgres for capstone](https://github.com/gram89/capstone/blob/backend-data-collection-cleaning-segment2/Images/tables_list.png)
+
+At this point there are two of the tables that we are planning to use in the Machine Learning model and in our frontend dashboard which we are planning to do as a webpage using JavaScript/HTML/Bootstrap/CSS.  Please have a look at Table 1 and Table 4 below, we have pulled out a sample of that data we have in the SQL database at this time. 
 
 The data found on each table is explained in the dictionary below:
 
@@ -50,6 +54,8 @@ This data refers to a salary research per region.
 | sector_industry | varchar | What sector or industry the salary belongs to. |
 | province | varchar | Which province this information was collected from.|
 
+
+![salaries table view](https://github.com/gram89/capstone/blob/backend-data-collection-cleaning-segment2/Images/salaries.png)
 
 ## Table 2: Geography Data
 
@@ -100,7 +106,11 @@ Variable | Data Type | Description
 | price | double | The listing price of the property.| 
 | address | varchar | The full address of the property.| 
 | bedrooms | double | How many bedrooms the property has.| 
-| bathrooms | double | How many bathrooms the property has.| 
+| bathrooms | double | How many bathrooms the property has.|
+
+
+![listing table view](https://github.com/gram89/capstone/blob/backend-data-collection-cleaning-segment2/Images/listings.png)
+
 
 
 ## ML Initial Ideas
