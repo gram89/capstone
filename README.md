@@ -8,6 +8,60 @@ https://docs.google.com/presentation/d/16HX-4gxxWvJhYth8kHkRRqW-fMynWEsueiPTrCZG
 
 ## Backend Data Collection & Cleaning
 
+### Pivoting to find the right data to fit our needs:
+After exploratory analysis to find the data from CREA (Canadian Real Estate Association) and the realtor.ca website, we hit snags which prevented us from programmatically scraping and using this data to perform machine learning analysis. The key issues faced were as follows
+- Lack of meaningful features which help in building a predictive/classification model
+- Anti-scraping measures undertaken by the realtor.ca website  
+
+To avoid these we pivoted to find a more reliable data source with multiple features. We leveraged data from listing.ca and programmatically scraped two datasets
+1. Listing Data
+2. Historical prices  
+The main caveat here is we had to geographically restrict ourself to Ontario and Greater Toronto Area to get better and more feature rich data.
+
+Key parts of the code which helped us in the scraping 
+
+``` python
+listing_info=[]
+
+for i in range(1,200):
+    url = f"https://listing.ca/mls/?..........{i}..$"
+    print(f"Scraping {url}")
+    resp = main_session.get(url)
+    time.sleep(3)
+    listing_ca_page = soup(resp.content, 'html.parser')
+    #extracting information
+    prop_address = listing_ca_page.find_all("div",{"class","slt_address"})
+    prop_beds = listing_ca_page.find_all("div",{"class","slt_beds"})
+    prop_baths = listing_ca_page.find_all("div",{"class","slt_baths"})
+    prop_price = listing_ca_page.find_all("div",{"class","slt_price"})
+    prop_desc = listing_ca_page.find_all("div",{"class","sl_loc"})
+    prop_text = listing_ca_page.find_all("div",{"class","sl"})
+    j=0
+    for j in range(0,len(prop_address)):
+        add = prop_address[j].text
+        price = prop_price[j].text
+        beds = prop_beds[j].text
+        baths = prop_baths[j].text
+        location = prop_desc[j].text
+        text = prop_text[j].text
+    
+        listing_info.append({
+            "Address": add,
+            "Price": price,
+            "Beds": beds,
+            "Baths": baths,
+            "Location": location,
+            "All_Text": text
+        })
+
+df_listing = pd.DataFrame(listing_info)
+df_listing.head()
+```
+
+
+
+
+
 ### Housing Prices:
 We sourced Canadian housing price data which has prices for 6 different types of houses.  The data is by month by different geographies across Canada, allowing us to look at prices over time.  The data starts in January 2005 and goes until November 2021.
 
