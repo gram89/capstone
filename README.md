@@ -147,7 +147,9 @@ This data refers to a salary research per region.
 
 ![salaries table view](https://github.com/gram89/capstone/blob/backend-data-collection-cleaning-segment2/Images/salaries.png)
 
-### Table 2: Geography Data
+
+## Table 2: Geography Data
+
 
 This data refers to geographical data of any datapoint found in the research.
 
@@ -197,6 +199,11 @@ Variable | Data Type | Description
 | address | varchar | The full address of the property.| 
 | bedrooms | double | How many bedrooms the property has.| 
 | bathrooms | double | How many bathrooms the property has.|
+
+
+![listing table view](https://github.com/gram89/capstone/blob/backend-data-collection-cleaning-segment2/Images/listings.png)
+
+
 
 
 ![listing table view](https://github.com/gram89/capstone/blob/backend-data-collection-cleaning-segment2/Images/listings.png)
