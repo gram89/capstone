@@ -1,4 +1,4 @@
-# capstone
+# Finding the right home
 
 ## Project Overview
 Here is the link to the Google slides presentation which includes our overall project plan and updates on where we are as we work through the project.
