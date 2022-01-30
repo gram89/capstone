@@ -83,6 +83,7 @@ Source is a Stats Canada website (2021 data):
 https://open.canada.ca/data/en/dataset/adad580f-76b0-4502-bd05-20c125de9116
 
 ## Listing Data
+
 While the CREA and StatsCan data will provide us historical information on prices, affordability and salary, the real-time listing data will provide us with the actual listing information and the current prices. This data is scraped from realtor.ca and has all the live listings.
 - Sourcing: This data is scraped programmatically from the webiste using beautiful soup, splinter and webdriver and is written in a dataframe which will be migrated to the database
 - Adding elements: The address data will be searched in Google for each listing to extract the latitudes and longitudes for mapping in the front-end
@@ -91,7 +92,36 @@ While the CREA and StatsCan data will provide us historical information on price
 - Cleaning/Processing: See a sample of the table of this data in Database section that we have cleaned/processed in Python and uploaded to PostgresSQL.
 
 =======
-# Database Sketch
+
+
+## ML Initial Ideas
+
+The objective of this project is to predict the prices of houses five years from now and if the houses are affordable based on the salary of an individual. This prediction of prices and a property’s affordability is made possible by using machine learning. 
+
+The variables available in the data related to the real estate are, for example, the price of the property, number of rooms, bathrooms in a property, lot sizes, etc., will be used to predict the prices in the housing market in Canada in the next five years. This will be done using supervised and unsupervised machine learning enabling us to estimate the prices. 
+
+The nature of the analysis and the desired outcome will allow us to mostly focus on logistic regression using the number of rooms in the property, the square food, address, number of bedrooms and bathroom and the current price. 
+
+The unsupervised machine learning will be utilized for predicting and displaying which individuals falling under a range of salary will be able to afford a property in a specific range. For example, if an individual’s salary falls under the range of $80,000.00 to $100,000.00, will this individual be able to afford a property amounting to $750,000.00. The information like the individual’s salary, individual’s employment sector and the province will also be factored in. 
+
+
+## Initial Machine Learning Results.
+
+The data scraped so far had the price, number of bedrooms, number of bathrooms, and location information (City, Area and Address).
+
+After running some Machine Learning Models to test how the price values could be predicted based on these features, the results were:
+
+| Model | Training Data Score | Testing Data Score |
+|----------|-----------|-------------|
+| LinearRegression | 0.5442587380510091 | -5.306052466061718e+22 |
+| RandomForestRegressor | 0.8419859453263713 | 0.453853925683225 |
+| ElasticNet | 0.2887299552112882 | 0.35309095493436526
+
+
+As these results were not satisfactory, the data was investigated to find potential issues, and in fact from the 37577 datapoints available, 1585 are missing the City and around 700 are missing the Area. With that, we used GeoPy to gather the City for the datapoints with the City information missing, and additionally the PostalCode, Latitude and Longitude for the entire dataset.
+
+
+## Database Sketch
 
 The database for this project will consist of four tables. Their relationships, variables, variables types and primary keys can be found in the diagram below:
 
@@ -104,7 +134,7 @@ At this point there are two of the tables that we are planning to use in the Mac
 
 The data found on each table is explained in the dictionary below:
 
-## Table 1: Salaries Information
+### Table 1: Salaries Information
  
 This data refers to a salary research per region.
 
@@ -117,7 +147,9 @@ This data refers to a salary research per region.
 
 ![salaries table view](https://github.com/gram89/capstone/blob/backend-data-collection-cleaning-segment2/Images/salaries.png)
 
+
 ## Table 2: Geography Data
+
 
 This data refers to geographical data of any datapoint found in the research.
 
@@ -132,7 +164,7 @@ This data refers to geographical data of any datapoint found in the research.
 | postalcode | varchar | The postalcode extracted from the full address.| 
 
 
-## Table 3: Properties
+### Table 3: Properties
 
 This data refers to the features we intend to use to predict the prices in the housing market in Canada in the next five years.
 
@@ -156,7 +188,7 @@ This data refers to the features we intend to use to predict the prices in the h
 | address | varchar | The full address of the property. | 
 
 
-## Table 4: Listings
+### Table 4: Listings
 
 The data below will be extracted from Realtor.ca so we can apply the predictions in the current listings to forecast how much these same listings will have their prices increased in the next five years.
 
@@ -173,11 +205,6 @@ Variable | Data Type | Description
 
 
 
-## ML Initial Ideas
 
-The objective of this project is to predict the prices of houses five years from now and if the houses are affordable based on the salary of an individual. This prediction of prices and a property’s affordability is made possible by using machine learning. The variables available in the data related to the real estate are, for example, the price of the property, number of rooms, bathrooms in a property, lot sizes, etc., will be used to predict the prices in the housing market in Canada in the next five years. This will be done using supervised and unsupervised machine learning enabling us to estimate the prices. 
-
-The nature of the analysis and the desired outcome will allow us to mostly focus on logistic regression using the number of rooms in the property, the square food, address, number of bedrooms and bathroom and the current price. 
-
-The unsupervised machine learning will be utilized for predicting and displaying which individuals falling under a range of salary will be able to afford a property in a specific range. For example, if an individual’s salary falls under the range of $80,000.00 to $100,000.00, will this individual be able to afford a property amounting to $750,000.00. The information like the individual’s salary, individual’s employment sector and the province will also be factored in. 
+![listing table view](https://github.com/gram89/capstone/blob/backend-data-collection-cleaning-segment2/Images/listings.png)
 
