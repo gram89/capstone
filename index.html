@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Basic Charts</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="style.css">-->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="salary.js"></script>
+</head>
+<body>
+    <div class = "row">
+        <div class = "well">
+            <h5>City looking to live:</h5>
+            <select id="selDataset" onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="col-md-5">
+            <div id="bar"></div>
+        </div>
+    </div>
+    <div id="plot"></div>
+</body>
+</html>
