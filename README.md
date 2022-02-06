@@ -1,3 +1,5 @@
+![website page] (Images/real_estate.png)  
+
 # Finding the right home
 
 ## Project Overview
