@@ -8,9 +8,7 @@ function init() {
   // Use the list of sample names to populate the select options
   d3.csv(path).then((data) => {
     var cityArray = data.map(a => a.ER_Name_Nom_RE);
-    console.log(cityArray);
     var sampleNames = cityArray.filter((v, i, a) => a.indexOf(v) === i);
-    console.log(sampleNames);
     
     sampleNames.forEach((sample) => {
       selector.append("option")
@@ -60,13 +58,12 @@ function buildMetadata(sample) {
   });
 }
 
-// 1. Create the buildCharts function - build bar and bubble charts.
+// Create the buildCharts function - build bar chart
 function buildCharts(city) {
-  // 2. Use d3.json to load and retrieve the samples.json file 
+  // Use d3.json to load and retrieve the samples.json file 
   d3.csv(path).then((data) => {
     // Create a variable that filters the Cities for the objet with the desired Title
     let sampleCity = data.filter(Obj => Obj.ER_Name_Nom_RE == city);
-    console.log(sampleCity);
     
     // Convert salaries in data to numbers
     data.forEach(function(d){
@@ -81,14 +78,10 @@ function buildCharts(city) {
     // Create variables that hold the variables
         let Title = sampleCity.map(a => a.NOC_Title);
         let Salary = sampleCity.map(a => a.Median_Wage_Salaire_Median);
-        console.log(Title);
-        console.log(Salary);
        
     // Create variables with top 25
     let TitleTop = Title.slice(0,50);
     let SalaryTop = Salary.slice(0,50);
-    console.log(TitleTop);
-    console.log(SalaryTop);
 
     // Create the ytickds for the bar chart
     let yticks = TitleTop.map(x => `Title: ${x}`);
@@ -179,4 +172,3 @@ function buildCharts(city) {
 //     Plotly.newPlot("gauge", gaugeData, gaugeLayout);
 //   });
 // }
-

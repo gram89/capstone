@@ -15,9 +15,6 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
-        <!-- another option below that I had tried to put image on jumbotron - but decided to put in CSS -->
-        <!--<div class="jumbotron" style="background-image: url(https://courses.bootcampspot.com/courses/769/files/1044287/preview); background-size: 100%"></div> -->
-        <!-- made the font darkblue for heading and white for subheading... also bolded the heading -->
         <h1 style="color:royalblue"><b>Where to live and work in Ontario around the GTA!</b></h1>
         <p style="color:whitesmoke">Use the interactive charts below to explore Housing Prices and Salaries</p>
       </div>
@@ -25,7 +22,7 @@
     <div class="row">
       <div class="col-md-3">
         <div class="well">
-          <h5>City looking to live:</h5>
+          <h5>Where are you looking to live:</h5>
           <!-- <select id="selDataset"></select> -->
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
         </div>
@@ -35,6 +32,7 @@
           </div>
           <!-- changed the panel body background color to lightblue -->
           <div id="sample-metadata" class="panel-body" style="background-color: lightblue"></div>
+          <select id="selTitle" onchange="optionChanged(this.value)"></select>
         </div>
       </div>
       <div class="col-md-8">
@@ -55,6 +53,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="chartsSalary.js"></script>
+  <!-- <script src="index.js"></script> -->
 
 </body>
 
