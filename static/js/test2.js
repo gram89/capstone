@@ -60,7 +60,7 @@ function optionChanged(newSample) {
       // Hint: Inside the loop, you will need to use d3 to append new
       // tags for each key-value in the metadata.
       Object.entries(result).forEach(([key, value]) => {
-        PANEL.append("h3").text(`${key.toUpperCase()}: ${value}`);
+        PANEL.append("h4").text(`${key.toUpperCase()}: ${value}`);
       });
   
     });
@@ -77,7 +77,7 @@ function optionChanged(newSample) {
       let filter2018 = filteredData.filter(a => a.Year == "2018");
       let filter2017 = filteredData.filter(a => a.Year == "2017");
       
-      let month2021 = filter2021.map(a =>a.Month);
+      let month2021 = filter2021.map(a =>a.Month).reverse();
       let sold2021 = filter2021.map(a =>parseFloat(a.Sold_price_avg));
       //let list2021 = filter2021.map(a =>parseFloat(a.List_price_avg));
       let listVsSold2021 = filter2021.map(a =>(parseFloat(a.Sold_price_avg)-parseFloat(a.List_price_avg)));
@@ -267,6 +267,7 @@ function buildListings(city) {
     var result3=filteredColumns[2];
     var result4 = filteredColumns[3];
     var result5 = filteredColumns[4];
+    var result6 = filteredColumns[5];
     console.log(filteredData[0]);
     // Use d3 to select the panel with id of `#sample-metadata`
     var PANEL = d3.select("#listing1");
@@ -278,7 +279,7 @@ function buildListings(city) {
     // Hint: Inside the loop, you will need to use d3 to append new
     // tags for each key-value in the metadata.
     Object.entries(result1).forEach(([key, value]) => {
-      PANEL.append("h3").text(`${key.toUpperCase()}: ${value}`);
+      PANEL.append("h4").text(`${key.toUpperCase()}: ${value}`);
     });
 
     var PANEL = d3.select("#listing2");
@@ -290,8 +291,54 @@ function buildListings(city) {
     // Hint: Inside the loop, you will need to use d3 to append new
     // tags for each key-value in the metadata.
     Object.entries(result2).forEach(([key, value]) => {
-      PANEL.append("h3").text(`${key.toUpperCase()}: ${value}`);
+      PANEL.append("h4").text(`${key.toUpperCase()}: ${value}`);
     });
+
+    var PANEL = d3.select("#listing3");
+
+    // Use `.html("") to clear any existing metadata
+    PANEL.html("");
+
+    // Use `Object.entries` to add each key and value pair to the panel
+    // Hint: Inside the loop, you will need to use d3 to append new
+    // tags for each key-value in the metadata.
+    Object.entries(result3).forEach(([key, value]) => {
+      PANEL.append("h4").text(`${key.toUpperCase()}: ${value}`);
+    });
+    var PANEL = d3.select("#listing4");
+
+    // Use `.html("") to clear any existing metadata
+    PANEL.html("");
+
+    // Use `Object.entries` to add each key and value pair to the panel
+    // Hint: Inside the loop, you will need to use d3 to append new
+    // tags for each key-value in the metadata.
+    Object.entries(result4).forEach(([key, value]) => {
+      PANEL.append("h4").text(`${key.toUpperCase()}: ${value}`);
+    });
+    var PANEL = d3.select("#listing5");
+
+    // Use `.html("") to clear any existing metadata
+    PANEL.html("");
+
+    // Use `Object.entries` to add each key and value pair to the panel
+    // Hint: Inside the loop, you will need to use d3 to append new
+    // tags for each key-value in the metadata.
+    Object.entries(result5).forEach(([key, value]) => {
+      PANEL.append("h4").text(`${key.toUpperCase()}: ${value}`);
+    });
+    var PANEL = d3.select("#listing6");
+
+    // Use `.html("") to clear any existing metadata
+    PANEL.html("");
+
+    // Use `Object.entries` to add each key and value pair to the panel
+    // Hint: Inside the loop, you will need to use d3 to append new
+    // tags for each key-value in the metadata.
+    Object.entries(result6).forEach(([key, value]) => {
+      PANEL.append("h4").text(`${key.toUpperCase()}: ${value}`);
+    });
+
 
   });
 }
