@@ -1,0 +1,44 @@
+Salaries
+-
+salary double
+sector_industry varchar
+province varchar PK fk - Geography.province
+
+
+Geography
+- 
+address varchar PK fk - Properties.address
+longitude double
+latitude double
+street_address varchar
+city varchar
+province varchar
+postalcode varchar
+
+
+Properties
+- 
+price double
+timestamp date PK fk - Listings.timestamp
+square_footage varchar
+rooms int
+bathroom double
+property_type varchar
+lot_size double
+property_age int
+parking varchar
+heating_type varchar
+FFSR varchar
+property_view varchar
+selling_status varchar
+proximity varchar
+fireplace_basement varchar
+address varchar
+
+Listings
+- 
+timestamp date
+price double
+address varchar PK fk - Properties.address
+bedrooms double
+bathrooms double
