@@ -1,4 +1,4 @@
-![website page] (Images/real_estate.png)  
+![website page](https://github.com/gram89/capstone/blob/main/Images/real_estate.png)  
 
 # Finding the right home
 
