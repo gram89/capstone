@@ -1,8 +1,9 @@
+const path = "static/resources/Salaries_cleaned_ontario.csv";
 async function getData() {
     
     // Grab a reference to the dropdown select element
     var selector = d3.select("#selDataset");
-    d3.csv("static/resources/clean_historical.csv").then(function(data){
+        d3.csv("static/resources/clean_historical.csv").then(function(data){
         let cities = data.map(a => a.City);
         let month = data.map(a =>a.Month);
         let year = data.map(a =>a.Year);
@@ -24,15 +25,43 @@ async function getData() {
           buildMetadata(firstCity);
           buildListings(firstCity)
         });
+        
       }
+      async function getData2() {
+        var selector2 = d3.select("#selDataset2");
+        d3.csv(path).then((data) => {
+        var cityArray = data.map(a => a.ER_Name_Nom_RE);
+        var sampleNames = cityArray.filter((v, i, a) => a.indexOf(v) === i);
+        
+        sampleNames.forEach((sample) => {
+          selector2.append("option")
+            .text(sample)
+            .property("value", sample);
+        });
+    
+        // Use the first sample from the list to build the initial plots
+        var firstSample = sampleNames[0];
+        console.log(firstSample);
+        buildCharts2(firstSample);
+        buildMetadata2(firstSample);
+      });
+    }
 
 getData();
+getData2();
 
 function optionChanged(newSample) {
     // Fetch new data each time a new sample is selected
     buildMetadata(newSample);
     buildCharts(newSample);
     buildListings(newSample);
+    
+  }
+  function optionChanged2(newSample) {
+    // Fetch new data each time a new sample is selected
+    
+    buildCharts2(newSample);
+    buildMetadata2(newSample);
     
   }
 
@@ -52,6 +81,42 @@ function optionChanged(newSample) {
       var result = filteredColumns[0];
       // Use d3 to select the panel with id of `#sample-metadata`
       var PANEL = d3.select("#sample-metadata");
+  
+      // Use `.html("") to clear any existing metadata
+      PANEL.html("");
+  
+      // Use `Object.entries` to add each key and value pair to the panel
+      // Hint: Inside the loop, you will need to use d3 to append new
+      // tags for each key-value in the metadata.
+      Object.entries(result).forEach(([key, value]) => {
+        PANEL.append("h4").text(`${key.toUpperCase()}: ${value}`);
+      });
+  
+    });
+  }
+
+  function buildMetadata2(city) {
+
+    d3.csv(path).then((data) => {
+      // Create a variable that filters the Cities for the objet with the desired Title
+      let sampleCity = data.filter(Obj => Obj.ER_Name_Nom_RE == city);
+      
+      // Convert salaries in data to numbers
+      var filteredColumns = sampleCity.map(function(d){
+        return {
+        JobTitle : d.NOC_Title,
+        MedianSalary : +d.Median_Wage_Salaire_Median,
+        MinimumSalary : +d.Low_Wage_Salaire_Minium,
+        MaximumSalary : +d.High_Wage_Salaire_Maximal,
+
+        }
+        
+      });
+      let result1 = filteredColumns.sort((b,a) => a.MedianSalary - b.MedianSalary);
+      var result = result1[0];
+      console.log(result);
+      // Use d3 to select the panel with id of `#sample-metadata`
+      var PANEL = d3.select("#sample-metadata2");
   
       // Use `.html("") to clear any existing metadata
       PANEL.html("");
@@ -342,3 +407,52 @@ function buildListings(city) {
 
   });
 }
+
+function buildCharts2(city) {
+  // Use d3.csv to load and retrieve the samples.json file 
+  d3.csv(path).then((data) => {
+    // Create a variable that filters the Cities for the objet with the desired Title
+    let sampleCity = data.filter(Obj => Obj.ER_Name_Nom_RE == city);
+    
+    // Convert salaries in data to numbers
+    data.forEach(function(d){
+      d.Median_Wage_Salaire_Median = +d.Median_Wage_Salaire_Median;
+      d.Low_Wage_Salaire_Minium = +d.Low_Wage_Salaire_Minium;
+      d.High_Wage_Salaire_Maximal = +d.High_Wage_Salaire_Maximal;
+    });
+
+    // Sort data by median salary
+    let sortedSampleCity=sampleCity.sort((b,a) => a.Median_Wage_Salaire_Median - b.Median_Wage_Salaire_Median);
+
+    // Create variables that hold the variables
+        let Title = sortedSampleCity.map(a => a.NOC_Title);
+        let Salary = sortedSampleCity.map(a => a.Median_Wage_Salaire_Median);
+       
+    // Create variables with top 25
+    let TitleTop = Title.slice(0,10);
+    let SalaryTop = Salary.slice(0,10);
+
+    // Create the ytickds for the bar chart
+    //let yticks = TitleTop.map(x => `Title: ${x}`);
+    let yticksRev = TitleTop.map(x => x.substring(0,15));
+        
+    // Create the trace for the bar chart
+    var barData = [{
+      y: SalaryTop,
+      x: yticksRev,
+      //text: TitleTop,
+      type: "bar",
+      //barThickness: 500,
+      //orientation: "h",
+    }];
+
+    // Create the layout for the bar chart
+    var barLayout = {
+      title: "Top 10 Median Salary by Job Title/Category",
+      
+    };
+
+    // Use Plotly to plot the data with the layout
+    Plotly.newPlot("bar2", barData, barLayout);
+  });
+};
