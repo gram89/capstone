@@ -4,7 +4,7 @@
 
 ## Project Overview
 Here is the link to the Google slides presentation which includes our overall project plan and updates on where we are as we work through the project.
-https://docs.google.com/presentation/d/16HX-4gxxWvJhYth8kHkRRqW-fMynWEsueiPTrCZG0BY/edit?usp=sharing
+https://docs.google.com/presentation/d/16HX-4gxxWvJhYth8kHkRRqW-fMynWEsueiPTrCZG0BY/edit#slide=id.gcb9a0b074_1_0
 
 
 
