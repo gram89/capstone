@@ -1,4 +1,4 @@
-![website page](https://github.com/gram89/capstone/blob/main/Project/Images/real_estate.png)  
+![website page](https://github.com/gram89/capstone/blob/main/Process/Images/real_estate.png)  
 
 # Finding the right home
 
@@ -127,10 +127,10 @@ As these results were not satisfactory, the data was investigated to find potent
 
 The database for this project will consist of four tables. Their relationships, variables, variables types and primary keys can be found in the diagram below:
 
-![](/Project/Images/QuickDBD-Capstone_Sketch.png)
+![](/Process/Images/QuickDBD-Capstone_Sketch.png)
 
 We have pushed a few different data sets we downloaded or webcraped into PostgresSQL after cleaning/processing data in Python. Here is an image of all the tables we have pushed to Postgres: <br />
-![tables in postgres for capstone](https://github.com/gram89/capstone/blob/main/Images/tables_list.png)
+![tables in postgres for capstone](https://github.com/gram89/capstone/blob/main/Process/Images/tables_list.png)
 
 At this point there are two of the tables that we are planning to use in the Machine Learning model and in our frontend dashboard which we are planning to do as a webpage using JavaScript/HTML/Bootstrap/CSS.  Please have a look at Table 1 and Table 4 below, we have pulled out a sample of that data we have in the SQL database at this time. 
 
@@ -147,7 +147,7 @@ This data refers to a salary research per region.
 | province | varchar | Which province this information was collected from.|
 
 
-![salaries table view](https://github.com/gram89/capstone/blob/main/Project/Images/salaries.png)
+![salaries table view](https://github.com/gram89/capstone/blob/main/Process/Images/salaries.png)
 
 
 ## Table 2: Geography Data
@@ -203,5 +203,5 @@ Variable | Data Type | Description
 | bathrooms | double | How many bathrooms the property has.|
 
 
-![listing table view](https://github.com/gram89/capstone/blob/main/Project/Images/listings.png)
+![listing table view](https://github.com/gram89/capstone/blob/main/Process/Images/listings.png)
 
