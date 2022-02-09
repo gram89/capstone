@@ -23,7 +23,8 @@ async function getData() {
           var firstCity = filteredCities[0];
           buildCharts(firstCity);
           buildMetadata(firstCity);
-          buildListings(firstCity)
+          buildListings(firstCity);
+          buildMap(firstCity);
         });
         
       }
@@ -44,17 +45,20 @@ async function getData() {
         console.log(firstSample);
         buildCharts2(firstSample);
         buildMetadata2(firstSample);
+        
       });
     }
 
 getData();
 getData2();
 
+
 function optionChanged(newSample) {
     // Fetch new data each time a new sample is selected
     buildMetadata(newSample);
     buildCharts(newSample);
     buildListings(newSample);
+    buildMap(newSample);
     
   }
   function optionChanged2(newSample) {
@@ -62,6 +66,7 @@ function optionChanged(newSample) {
     
     buildCharts2(newSample);
     buildMetadata2(newSample);
+    
     
   }
 
@@ -456,3 +461,116 @@ function buildCharts2(city) {
     Plotly.newPlot("bar2", barData, barLayout);
   });
 };
+
+function buildMap(city) {
+  d3.csv("static/resources/clustered_listings.csv").then(function(data){
+    // 3. Create a variable that holds the filtered array
+    let filteredData = data.filter(a => a.City.toUpperCase() == city.toUpperCase());
+    var propertyDetails = filteredData.map(function(d) {
+      return {
+        //"Listing_Details": {Address: d.Address, Postal: d.Postal_Code, Beds: d.Beds, Baths: d.Baths, Price: d.Price},
+        "Address": d.Address,
+        "Postal Code": d.Postal_Code,
+        "Beds": d.Beds,
+        "Baths": d.Baths,
+        "List Price": d.Price,
+        "Cluster": d.Cluster
+        //"Lat" : d.Latitude,
+        //"Long": d.Longitude
+
+      }
+    });
+
+    var propertyDetails2 = filteredData.map(function(d) {
+      return [
+        d.Address + d.Postal_Code + " Beds: " + d.Beds+ " Baths: "+ d.Baths+ " List Price: $"+ d.Price
+      //   "Cluster": d.Cluster
+      //   "Lat" : d.Latitude,
+      //   "Long": d.Longitude
+
+     ]
+    });
+    console.log(propertyDetails2[0])
+    // let list_details = [];
+
+    // for (var i =0 ; i<propertyDetails.length; i++ ){
+    //   var fullDetails = 
+    // }
+
+    var lat = filteredData.map(function(d) {
+        return [d.Latitude]
+    });
+    var long = filteredData.map(function(d) {
+      return [d.Longitude]
+  });
+ console.log(lat[0]+long[0])
+  
+//  var data = filteredData.map(function(d) {
+//   return {
+//     //d.Address + d.Postal_Code + " Beds: " + d.Beds+ " Baths: "+ d.Baths+ " List Price: $"+ d.Price
+//   //   "Cluster": d.Cluster
+//   type:'scattermapbox',
+//   name: filteredData,   
+//   lat : d.Latitude,
+//   lon: d.Longitude
+
+//   }
+// });
+// function unpack(rows,key){
+//   return rows.map(function(row){
+//     return row[key];
+//   });
+// }
+// console.log(data);
+ var data = []
+ 
+ for (var i=0; i<lat.length; i++) {
+   data.push({
+  type:'scattermapbox',
+  text: propertyDetails2[i],
+  lat: lat[i],
+  lon:long[i],
+  mode:'markers',
+  marker: {
+    size:10
+  }
+})
+ }
+  
+// }]
+// var data =[{ 
+//   type:'scattermapbox',
+//   text: propertyDetails2,
+//   lat:lat,
+//   lon:long,
+//   mode:'markers',
+//   marker: {
+//     size:10
+//   }
+  
+// }]
+console.log(data[0])
+var layout = {
+  autosize: true,
+  hovermode:'closest',
+  //mapbox: { style: "open-street-map", center: { lat: 38, lon: -90 }, zoom: 3 },
+  mapbox: {
+    bearing:0,
+    style: "open-street-map",
+
+    center: {
+      lat:44,
+      lon:-79
+    },
+    pitch:0,
+    zoom:5
+ },
+}
+
+// Plotly.setPlotConfig({
+//   mapboxAccessToken: "pk.eyJ1IjoiZ291dGhhbXJhbTg5IiwiYSI6ImNrdzFlMTd5YTAybzIydnA4cjhheW5qcmQifQ.EMoK7mLH6vv5CWjM7JzEjw"
+// })
+
+Plotly.newPlot('myDiv', data, layout)
+});
+}
