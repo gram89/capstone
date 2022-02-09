@@ -567,10 +567,6 @@ var layout = {
  },
 }
 
-// Plotly.setPlotConfig({
-//   mapboxAccessToken: "pk.eyJ1IjoiZ291dGhhbXJhbTg5IiwiYSI6ImNrdzFlMTd5YTAybzIydnA4cjhheW5qcmQifQ.EMoK7mLH6vv5CWjM7JzEjw"
-// })
-
 Plotly.newPlot('myDiv', data, layout)
 });
 }
